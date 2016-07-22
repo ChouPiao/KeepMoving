@@ -4,3 +4,11 @@ html, body {
   margin: 0;
   padding: 0;
   background: #506070; }
+
+.color-bar {
+  width: 100%;
+  height: 10%;
+  background: #1050F0;
+  margin: 0;
+  padding: 0;
+}

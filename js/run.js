@@ -6,7 +6,11 @@ function colorBarAnimframe()  {
   
   this.init = function(index) {
     this.div = document.getElementById("color_bar" + index);
-    this.progress = Math.floor(Math.random() * 100) + 0.1;
+    this.reset();
+  }
+
+  this.reset = function(index) {
+    this.progress = 0;
     this.newSpeed();
     this.newBackground();
   }
@@ -14,7 +18,7 @@ function colorBarAnimframe()  {
   this.nextFrame = function() {
     this.progress += this.speed;
     if (this.progress > 100) {
-      this.progress = 0;
+      this.progress -= 100;
       this.newSpeed();
       this.newBackground();
     }
@@ -22,7 +26,7 @@ function colorBarAnimframe()  {
   }
 
   this.newSpeed = function()  {
-    this.speed = Math.random();
+    this.speed = Math.random() * 2 + 0.05;
   }
 
   this.newBackground = function() {
@@ -48,3 +52,13 @@ function step(timestamp) {
 }
 
 requestAnimationFrame(step);
+
+var restart = function () {
+  for (var i = 0; i < 10; ++ i) {
+    barList[i].reset();
+  }
+};
+
+inputManager = new KeyboardInputManager;
+inputManager.on("restart", restart);
+

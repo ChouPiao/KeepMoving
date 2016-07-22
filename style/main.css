@@ -11,4 +11,11 @@ html, body {
   background: #1050F0;
   margin: 0;
   padding: 0;
-}
+  text-align:center; }
+
+a {
+  color: #FF00FF;
+  background: #1050F0;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer; }
